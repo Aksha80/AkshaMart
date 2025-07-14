@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to AkshaMart</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, lavender, #e6e6fa);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #3d3d5c;
+      animation: fadeInSlide 2s ease forwards;
+      opacity: 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #5e5e7d;
+      margin-top: 10px;
+      animation: fadeInSlide 2.5s ease forwards;
+      opacity: 0;
+    }
+
+    .enter-btn {
+      margin-top: 40px;
+      padding: 14px 32px;
+      font-size: 18px;
+      background-color: #9370DB;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      animation: slideUp 3s ease forwards;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: transform 0.2s;
+    }
+
+    .enter-btn:active {
+      transform: scale(0.95);
+    }
+
+    .enter-btn:hover {
+      background-color: #7b61c6;
+    }
+
+    .floating-emojis {
+      position: absolute;
+      bottom: 50px;
+      display: flex;
+      gap: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .floating-emojis span {
+      font-size: 2rem;
+    }
+
+    @keyframes fadeInSlide {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to</h1>
+  <h1><strong>AkshaMart 🛍️</strong></h1>
+  <h2>Your one-stop digital shopping destination!</h2>
+
+  <div class="floating-emojis">
+    <span>🛍️</span>
+    <span>📦</span>
+    <span>💳</span>
+  </div>
+
+  <!-- 🔊 Click Sound -->
+  <audio id="click-sound" src="click.mp3" preload="auto"></audio>
+
+  <!-- 🖱️ Button -->
+  <button class="enter-btn" onclick="playSoundAndRedirect()">Enter AkshaMart</button>
+
+  <!-- 🎯 Script -->
+  <script>
+    function playSoundAndRedirect() {
+      const clickSound = document.getElementById('click-sound');
+      clickSound.play();
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 400); // wait for sound
+    }
+  </script>
+</body>
+</html>
